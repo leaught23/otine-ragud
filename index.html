@@ -1,0 +1,124 @@
+<?php
+/*
+Template Name: Soundboard Page
+*/
+
+get_header();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soundboard ni otine</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffe4e1;
+            color: #ff69b4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px #ffb6c1;
+            text-align: center;
+        }
+        form {
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 400px;
+        }
+        input[type="file"], input[type="submit"] {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 2px solid #ff69b4;
+            background-color: #fff;
+            color: #ff69b4;
+        }
+        input[type="submit"] {
+            background-color: #ff69b4;
+            color: white;
+            cursor: pointer;
+        }
+        .sound-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .sound {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #ffb6c1;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        audio {
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+        }
+        .cute-character {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: #ff69b4;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        .cute-character p {
+            margin: 0;
+            font-size: 14px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Soundboard ni otine</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".mp3,.wav,.ogg">
+        <input type="submit" value="Upload">
+    </form>
+    <div class="sound-container">
+        <!-- Add your sound files here -->
+    </div>
+    <div class="cute-character" onclick="showMessage()">
+        <p>😊</p>
+    </div>
+    <script>
+        function showMessage() {
+            const messages = [
+                'You\'re doing great!',
+                'Keep smiling!',
+                'You\'re awesome!',
+                'Have a wonderful day!',
+                'Stay positive!'
+            ];
+            const message = messages[Math.floor(Math.random() * messages.length)];
+            alert(message);
+        }
+    </script>
+</body>
+</html>
+
+<?php
+get_footer();
+?>
